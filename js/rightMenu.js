@@ -1,48 +1,48 @@
-// var str_1 = '<div style="background: #121212;height:100vh;text-align: center;"><img src="https://i.loli.net/2020/05/19/aKOcLiyPl2JQdFD.png" style="margin:12em auto 0; height: 16em;"><div style="color: rgba(255, 255, 255, .7);width: 100%;font-size: 1.7em;text-align: center;font-weight: bold;padding: 30px auto;margin-top: 15px;">这个网站炸了，<a href="/" style="color:#99a9bf;background-color: #1f1f1f;padding: .4em .5em;text-decoration: none;border-radius:4px">点击返回试试吧~</a></div></div>';
+var str_1 = '<div style="background: #121212;height:100vh;text-align: center;"><img src="https://i.loli.net/2020/05/19/aKOcLiyPl2JQdFD.png" style="margin:12em auto 0; height: 16em;"><div style="color: rgba(255, 255, 255, .7);width: 100%;font-size: 1.7em;text-align: center;font-weight: bold;padding: 30px auto;margin-top: 15px;">这个网站炸了，<a href="/" style="color:#99a9bf;background-color: #1f1f1f;padding: .4em .5em;text-decoration: none;border-radius:4px">点击返回试试吧~</a></div></div>';
 
-// document.onkeydown = function (e) {
-//     if (123 == e.keyCode || (e.ctrlKey && e.shiftKey && (74 === e.keyCode || 73 === e.keyCode || 67 === e.keyCode)) || (e.ctrlKey && 85 === e.keyCode)) return btf.snackbarShow("你真坏，不能打开控制台喔!"), event.keyCode = 0, event.returnValue = !1, !1
-//     if ((e.ctrlKey || e.metaKey) && 67 == e.keyCode && "" != selectTextNow) return btf.snackbarShow("复制成功"), rightmenuCopyText(selectTextNow), !1
-// };
-// (function () {
-//     function e() {
-//         var e = new Date;
-//         if (new Date - e > 0) {
-//             try {
-//                 document.getElementsByTagName("html")[0].innerHTML = str_1
-//             } catch (e) { }
-//             return document.body.innerHTML = str_1, !0
-//         }
-//         return !1
-//     }
+document.onkeydown = function (e) {
+    if (123 == e.keyCode || (e.ctrlKey && e.shiftKey && (74 === e.keyCode || 73 === e.keyCode || 67 === e.keyCode)) || (e.ctrlKey && 85 === e.keyCode)) return btf.snackbarShow("你干嘛~，抽!!(￣ε(#￣)☆╰╮(￣▽￣///)"), event.keyCode = 0, event.returnValue = !1, !1
+    if ((e.ctrlKey || e.metaKey) && 67 == e.keyCode && "" != selectTextNow) return btf.snackbarShow("复制成功"), rightmenuCopyText(selectTextNow), !1
+};
+(function () {
+    function e() {
+        var e = new Date;
+        if (new Date - e > 0) {
+            try {
+                document.getElementsByTagName("html")[0].innerHTML = str_1
+            } catch (e) { }
+            return document.body.innerHTML = str_1, !0
+        }
+        return !1
+    }
 
-//     function t() {
-//         for (; e();) e()
-//     }
-//     e() ? t() : window.onblur = function () {
-//         setTimeout(function () {
-//             t()
-//         }, 500)
-//     }
-// }, function () {
-//     var e = /x/;
-//     e.toString = function () {
-//         try {
-//             return document.body.innerHTML = str_1
-//         } catch (e) { }
-//         return document.body.innerHTML = str_1
-//     }
-// }, function () {
-//     var e = document.createElement("div");
-//     Object.defineProperty(e, "id", {
-//         get: function () {
-//             try {
-//                 return document.body.innerHTML = str_1
-//             } catch (e) { }
-//             return document.body.innerHTML = str_1
-//         }
-//     }), console.log(e)
-// })();
+    function t() {
+        for (; e();) e()
+    }
+    e() ? t() : window.onblur = function () {
+        setTimeout(function () {
+            t()
+        }, 500)
+    }
+}, function () {
+    var e = /x/;
+    e.toString = function () {
+        try {
+            return document.body.innerHTML = str_1
+        } catch (e) { }
+        return document.body.innerHTML = str_1
+    }
+}, function () {
+    var e = document.createElement("div");
+    Object.defineProperty(e, "id", {
+        get: function () {
+            try {
+                return document.body.innerHTML = str_1
+            } catch (e) { }
+            return document.body.innerHTML = str_1
+        }
+    }), console.log(e)
+})();
 
 var rm = {};
 
