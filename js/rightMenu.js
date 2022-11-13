@@ -1,8 +1,8 @@
-var str_1 = '<div style="background: #121212;height:100vh;text-align: center;"><img src="https://i.loli.net/2020/05/19/aKOcLiyPl2JQdFD.png" style="margin:12em auto 0; height: 16em;"><div style="color: rgba(255, 255, 255, .7);width: 100%;font-size: 1.7em;text-align: center;font-weight: bold;padding: 30px auto;margin-top: 15px;">这个网站炸了，<a href="/" style="color:#99a9bf;background-color: #1f1f1f;padding: .4em .5em;text-decoration: none;border-radius:4px">点击返回试试吧~</a></div></div>';
+var str_1 = '<div style="background: #121212;height:100vh;text-align: center;"><img src="https://i.loli.net/2020/05/19/aKOcLiyPl2JQdFD.png" style="margin:12em auto 0; height: 16em;" alt=""><div style="color: rgba(255, 255, 255, .7);width: 100%;font-size: 1.7em;text-align: center;font-weight: bold;padding: 30px; auto;margin-top: 15px;">这个网站炸了，<a href="/" style="color:#99a9bf;background-color: #1f1f1f;padding: .4em .5em;text-decoration: none;border-radius:4px">点击返回试试吧~</a></div></div>';
 
 document.onkeydown = function (e) {
-    if (123 == e.keyCode || (e.ctrlKey && e.shiftKey && (74 === e.keyCode || 73 === e.keyCode || 67 === e.keyCode)) || (e.ctrlKey && 85 === e.keyCode)) return btf.snackbarShow("你干嘛~，抽!!(￣ε(#￣)☆╰╮(￣▽￣///)"), event.keyCode = 0, event.returnValue = !1, !1
-    if ((e.ctrlKey || e.metaKey) && 67 == e.keyCode && "" != selectTextNow) return btf.snackbarShow("复制成功"), rightmenuCopyText(selectTextNow), !1
+    if (123 === e.keyCode || (e.ctrlKey && e.shiftKey && (74 === e.keyCode || 73 === e.keyCode || 67 === e.keyCode)) || (e.ctrlKey && 85 === e.keyCode)) return btf.snackbarShow("你干嘛~，抽!!(￣ε(#￣)☆╰╮(￣▽￣///)"), event.keyCode = 0, event.returnValue = !1, !1
+    if ((e.ctrlKey || e.metaKey) && 67 === e.keyCode && "" !== selectTextNow) return btf.snackbarShow("复制成功"), rightmenuCopyText(selectTextNow), !1
 };
 (function () {
     function e() {
@@ -10,7 +10,8 @@ document.onkeydown = function (e) {
         if (new Date - e > 0) {
             try {
                 document.getElementsByTagName("html")[0].innerHTML = str_1
-            } catch (e) { }
+            } catch (e) {
+            }
             return document.body.innerHTML = str_1, !0
         }
         return !1
@@ -19,6 +20,7 @@ document.onkeydown = function (e) {
     function t() {
         for (; e();) e()
     }
+
     e() ? t() : window.onblur = function () {
         setTimeout(function () {
             t()
@@ -29,7 +31,8 @@ document.onkeydown = function (e) {
     e.toString = function () {
         try {
             return document.body.innerHTML = str_1
-        } catch (e) { }
+        } catch (e) {
+        }
         return document.body.innerHTML = str_1
     }
 }, function () {
@@ -38,7 +41,8 @@ document.onkeydown = function (e) {
         get: function () {
             try {
                 return document.body.innerHTML = str_1
-            } catch (e) { }
+            } catch (e) {
+            }
             return document.body.innerHTML = str_1
         }
     }), console.log(e)
@@ -85,7 +89,6 @@ function selceText() {
         selectTextNow = ""
     }
 }
-
 
 
 window.oncontextmenu = function (event) {
@@ -149,8 +152,7 @@ window.oncontextmenu = function (event) {
                 $rightMenuCopyImg.hide();
                 $rightMenuDownloadImg.hide();
             }
-        }
-        else {
+        } else {
             $rightMenuCopyImg.hide();
             $rightMenuDownloadImg.hide()
             $rightMenuNewWindow.hide();
@@ -190,7 +192,8 @@ function stopMaskScroll() {
         xscroll.addEventListener("mousewheel", function (e) {
             removeRightMenu();
         }, false);
-    };
+    }
+
     if (document.getElementById("rightMenu")) {
         let xscroll = document.getElementById("rightMenu");
         xscroll.addEventListener("mousewheel", function (e) {
@@ -220,15 +223,25 @@ function switchDarkMode() {
     // typeof utterancesTheme === 'function' && utterancesTheme();
     // typeof FB === 'object' && window.loadFBComment();
     // window.DISQUS && document.getElementById('disqus_thread').children.length && setTimeout(() => window.disqusReset(), 200);
-};
+}
 
-$('#menu-backward').on('click', function () { window.history.back(); });
-$('#menu-forward').on('click', function () { window.history.forward(); });
-$('#menu-refresh').on('click', function () { window.location.reload(); });
+$('#menu-backward').on('click', function () {
+    window.history.back();
+});
+$('#menu-forward').on('click', function () {
+    window.history.forward();
+});
+$('#menu-refresh').on('click', function () {
+    window.location.reload();
+});
 
-$('#menu-darkmode').on('click', function () { switchDarkMode() });
+$('#menu-darkmode').on('click', function () {
+    switchDarkMode()
+});
 
-$('#menu-home').on('click', function () { window.location.href = window.location.origin; });
+$('#menu-home').on('click', function () {
+    window.location.href = window.location.origin;
+});
 
 $(".menu-link").on("click", function () {
     removeRightMenu()
@@ -243,17 +256,18 @@ function copyUrl(url) {
     input.setSelectionRange(0, input.value.length);
     document.execCommand("copy");
     $("#copyVal").remove()
-};
+}
+
 function copyPageUrl() {
     var url = window.location.href;
     copyUrl(url);
     btf.snackbarShow("复制本页链接地址成功");
     removeRightMenu()
-};
+}
 
 /**
  * @name: 复制文本 || 链接
- * @description: 
+ * @description:
  * @param { String } text
  * @param { String } type
  * @return {*}
@@ -261,7 +275,7 @@ function copyPageUrl() {
 function rightmenuCopyText(text, type = "no-add") {
     const copyright = GLOBAL_CONFIG.copyright;
     var textFont;
-    if (type == "add-copyright") {
+    if (type === "add-copyright") {
         /**
          * 複製時加上版權信息
          */
@@ -281,7 +295,7 @@ function rightmenuCopyText(text, type = "no-add") {
         navigator.clipboard.writeText(textFont)
     }
     removeRightMenu()
-};
+}
 
 rm.downloadimging = false;
 
@@ -304,6 +318,7 @@ function imageToBlob(imageURL) {
         }
     })
 }
+
 async function copyImage(imageURL) {
     const blob = await imageToBlob(imageURL);
     const item = new ClipboardItem({
@@ -314,12 +329,12 @@ async function copyImage(imageURL) {
 
 function writeClipImg(imgsrc) {
     removeRightMenu();
-    if (imgsrc.indexOf(location.host) == -1) {
+    if (imgsrc.indexOf(location.host) === -1) {
         btf.snackbarShow("图片不同源，由于CORS限制，将无法提取位图！");
         return
     }
     btf.snackbarShow("正在下载中，请稍后", false, 1e4);
-    if (rm.downloadimging == false) {
+    if (rm.downloadimging === false) {
         rm.downloadimging = true;
         setTimeout(function () {
             copyImage(imgsrc);
@@ -328,9 +343,10 @@ function writeClipImg(imgsrc) {
         }, "10000")
     }
 }
+
 /**
  * @name: 下载图片
- * @description: 
+ * @description:
  * @param { String } imgsrc
  * @param { String } name
  */
@@ -340,7 +356,7 @@ function downloadImage(imgsrc, name) {
         btf.snackbarShow("图片不同源，由于CORS限制，将无法提取位图！");
         return
     }
-    if (rm.downloadimging == false) {
+     if (rm.downloadimging == false) {
         rm.downloadimging = true;
         btf.snackbarShow("正在下载中，请稍后", false, 1e4);
         setTimeout(function () {
@@ -366,7 +382,7 @@ function downloadImage(imgsrc, name) {
     } else {
         btf.snackbarShow("有正在进行中的下载，请稍后再试")
     }
-    */
+     */
     setTimeout(function () {
         let a = document.createElement("a");
         let event = new MouseEvent("click");
@@ -377,16 +393,17 @@ function downloadImage(imgsrc, name) {
         rm.downloadimging = false;
     }, 2000)
 }
+
 /**
  百度搜索
-*/
+ */
 function searchBaidu() {
     btf.snackbarShow("即将跳转到百度搜索");
     setTimeout(function () {
         window.open("https://www.baidu.com/s?wd=" + selectTextNow)
     }, "2000");
     removeRightMenu();
-};
+}
 
 /**
  * 粘贴文本到剪切板
@@ -403,7 +420,7 @@ insertAtCaret: (elemt, value) => {
         sel.text = value;
         elemt.focus();
     } else {
-        if (startPos || startPos == '0') {
+        if (startPos || startPos === '0') {
             var scrollTop = elemt.scrollTop;
             elemt.value = elemt.value.substring(0, startPos) + value + elemt.value.substring(endPos, elemt.value.length);
             elemt.focus();
@@ -416,18 +433,21 @@ insertAtCaret: (elemt, value) => {
         }
     }
 }
+
 /**
  * 阅读模式 read-mode
  */
 function switchReadMode(len) {
     const $body = document.body
     let newEle;
+
     function clickFn() {
         $body.classList.remove('read-mode');
         newEle.remove();
         newEle.removeEventListener('click', clickFn);
     }
-    if (len == 0) {
+
+    if (len === 0) {
         $body.classList.add('read-mode');
         newEle = document.createElement('button');
         newEle.type = 'button';
@@ -479,18 +499,18 @@ $("#menu-readmode").on("click", function () {
     switchReadMode(is_readmode);
 });
 
-$("#rightmenu-mask").on("click", function () { removeRightMenu() });
+$("#rightmenu-mask").on("click", function () {
+    removeRightMenu()
+});
 $("#rightmenu-mask").contextmenu(function () {
     removeRightMenu();
     return false;
 });
 
 
-
-
 ///复制文本的代码
-rm.copySelect = function(){
-    document.execCommand('Copy',false,null);
+rm.copySelect = function () {
+    document.execCommand('Copy', false, null);
     //这里可以写点东西提示一下 已复制
     btf.snackbarShow("复制成功");
     removeRightMenu();
