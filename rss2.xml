@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0"
+  xmlns:atom="http://www.w3.org/2005/Atom"
+  xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>曲调有情の小站</title>
+    <link>https://chihy525.github.io/</link>
+    
+    <image>
+      <url>https://chihy525.github.io/img/33.ico</url>
+      <title>曲调有情の小站</title>
+      <link>https://chihy525.github.io/</link>
+    </image>
+    
+    <atom:link href="https://chihy525.github.io/rss2.xml" rel="self" type="application/rss+xml"/>
+    
+    <description></description>
+    <pubDate>Sun, 16 Jul 2023 12:22:42 GMT</pubDate>
+    <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>Jenkins远程命令执行漏洞-CVE-2018-1000861</title>
+      <link>https://chihy525.github.io/2023/07/16/Jenkins%E8%BF%9C%E7%A8%8B%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C%E6%BC%8F%E6%B4%9E-CVE-2018-1000861/</link>
+      <guid>https://chihy525.github.io/2023/07/16/Jenkins%E8%BF%9C%E7%A8%8B%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C%E6%BC%8F%E6%B4%9E-CVE-2018-1000861/</guid>
+      <pubDate>Sun, 16 Jul 2023 11:25:25 GMT</pubDate>
+      
+        
+        
+          
+          
+      <description>&lt;h1 id=&quot;Jenkins远程命令执行漏洞-CVE-2018-1000861&quot;&gt;&lt;a href=&quot;#Jenkins远程命令执行漏洞-CVE-2018-1000861&quot; class=&quot;headerlink&quot;</description>
+          
+        
+      
+      
+      
+      
+      <category domain="https://chihy525.github.io/categories/%E6%BC%8F%E6%B4%9E%E5%A4%8D%E7%8E%B0/">漏洞复现</category>
+      
+      
+      <category domain="https://chihy525.github.io/tags/%E6%BC%8F%E6%B4%9E%E5%A4%8D%E7%8E%B0/">漏洞复现</category>
+      
+      
+      <comments>https://chihy525.github.io/2023/07/16/Jenkins%E8%BF%9C%E7%A8%8B%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C%E6%BC%8F%E6%B4%9E-CVE-2018-1000861/#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>Nacos_认证绕过漏洞(CVE-2021-29441)</title>
+      <link>https://chihy525.github.io/2023/07/10/Nacos-%E8%AE%A4%E8%AF%81%E7%BB%95%E8%BF%87%E6%BC%8F%E6%B4%9E-CVE-2021-29441/</link>
+      <guid>https://chihy525.github.io/2023/07/10/Nacos-%E8%AE%A4%E8%AF%81%E7%BB%95%E8%BF%87%E6%BC%8F%E6%B4%9E-CVE-2021-29441/</guid>
+      <pubDate>Mon, 10 Jul 2023 09:41:02 GMT</pubDate>
+      
+        
+        
+          
+          
+      <description>&lt;h1 id=&quot;Nacos-认证绕过漏洞-CVE-2021-29441&quot;&gt;&lt;a href=&quot;#Nacos-认证绕过漏洞-CVE-2021-29441&quot; class=&quot;headerlink&quot;</description>
+          
+        
+      
+      
+      
+      
+      <category domain="https://chihy525.github.io/categories/%E6%BC%8F%E6%B4%9E%E5%A4%8D%E7%8E%B0/">漏洞复现</category>
+      
+      
+      <category domain="https://chihy525.github.io/tags/%E6%BC%8F%E6%B4%9E%E5%A4%8D%E7%8E%B0/">漏洞复现</category>
+      
+      
+      <comments>https://chihy525.github.io/2023/07/10/Nacos-%E8%AE%A4%E8%AF%81%E7%BB%95%E8%BF%87%E6%BC%8F%E6%B4%9E-CVE-2021-29441/#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>CmsEasy之cut-image漏洞复现</title>
+      <link>https://chihy525.github.io/2023/02/18/CmsEasy%E4%B9%8Bcut-image%E6%BC%8F%E6%B4%9E%E5%A4%8D%E7%8E%B0/</link>
+      <guid>https://chihy525.github.io/2023/02/18/CmsEasy%E4%B9%8Bcut-image%E6%BC%8F%E6%B4%9E%E5%A4%8D%E7%8E%B0/</guid>
+      <pubDate>Sat, 18 Feb 2023 11:08:58 GMT</pubDate>
+      
+        
+        
+          
+          
+      <description>&lt;h1 id=&quot;CmsEasy-cut-image-代码执行漏洞&quot;&gt;&lt;a href=&quot;#CmsEasy-cut-image-代码执行漏洞&quot; class=&quot;headerlink&quot; title=&quot;CmsEasy cut_image 代码执行漏洞&quot;&gt;&lt;/a&gt;CmsEasy</description>
+          
+        
+      
+      
+      
+      
+      <category domain="https://chihy525.github.io/categories/%E6%BC%8F%E6%B4%9E%E5%A4%8D%E7%8E%B0/">漏洞复现</category>
+      
+      
+      <category domain="https://chihy525.github.io/tags/%E6%BC%8F%E6%B4%9E%E5%A4%8D%E7%8E%B0-cmseasy-cut-image/">漏洞复现 cmseasy cut_image</category>
+      
+      
+      <comments>https://chihy525.github.io/2023/02/18/CmsEasy%E4%B9%8Bcut-image%E6%BC%8F%E6%B4%9E%E5%A4%8D%E7%8E%B0/#disqus_thread</comments>
+      
+    </item>
+    
+  </channel>
+</rss>

@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>Jenkins远程命令执行漏洞-CVE-2018-1000861</title>
+      <link href="/2023/07/16/Jenkins%E8%BF%9C%E7%A8%8B%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C%E6%BC%8F%E6%B4%9E-CVE-2018-1000861/"/>
+      <url>/2023/07/16/Jenkins%E8%BF%9C%E7%A8%8B%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C%E6%BC%8F%E6%B4%9E-CVE-2018-1000861/</url>
+      
+        <content type="html"><![CDATA[<h1 id="Jenkins远程命令执行漏洞-CVE-2018-1000861"><a href="#Jenkins远程命令执行漏洞-CVE-2018-1000861" class="headerlink" title="Jenkins远程命令执行漏洞-CVE-2018-1000861"></a>Jenkins远程命令执行漏洞-CVE-2018-1000861</h1><h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><p>Jenkins使用Stapler框架开发，其允许用户通过URL PATH来调用一次public方法。由于这个过程没有做限制，攻击者可以构造一些特殊的PATH来执行一些敏感的Java方法。</p><h2 id="产生版本"><a href="#产生版本" class="headerlink" title="产生版本"></a>产生版本</h2><p>Jenkins version &lt;&#x3D; 2.138</p><h2 id="漏洞原理"><a href="#漏洞原理" class="headerlink" title="漏洞原理"></a>漏洞原理</h2><p>通过这个漏洞，我们可以找到很多可供利用的利用链。其中最严重的就是绕过Groovy沙盒导致未授权用户可执行任意命令：Jenkins在沙盒中执行Groovy前会先检查脚本是否有错误，检查操作是没有沙盒的，攻击者可以通过Meta-Programming的方式，在检查这个步骤时执行任意命令</p><h2 id="漏洞复现"><a href="#漏洞复现" class="headerlink" title="漏洞复现"></a>漏洞复现</h2><p>环境：</p><ul><li>攻击机:windows10 ip: 192.168.101.2</li><li>靶机:kali ip: 192.168.187.129</li></ul><ol><li>kali下载并使用docker启动<a href="https://vulhub.org/">vulhub</a>靶场</li><li>确认靶机的jenkins服务是否开启<br><img src="https://gitlab.com/chihy525/picgo_picture/-/raw/main/pictures/2023/07/16_19_44_4_1.jpg"></li><li>查看web站点指纹发现所使用的jenkins版本为2.138<br><img src="https://gitlab.com/chihy525/picgo_picture/-/raw/main/pictures/2023/07/16_19_45_44_2.jpg"></li><li>这里可以使用大佬已经编写好的<a href="https://github.com/orangetw/awesome-jenkins-rce-2019">一键化POC脚本</a>进行探测。因为自己初次学习，所以打算从数据包开始研究。</li><li>payload如下: <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">http://example.com:port/securityRealm/user/admin/descriptorByName/org.jenkinsci.plugins.scriptsecurity.sandbox.groovy.SecureGroovyScript/checkScript</span><br><span class="line">?sandbox=true</span><br><span class="line">&amp;value=</span><br><span class="line">public class x &#123;</span><br><span class="line">    public x()&#123;</span><br><span class="line">        &quot;touch /tmp/success&quot;.execute()</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li><li>首先需要在Windows上开启http服务，之后准备一个pl文件。为接下来做准备。</li><li>对payload进行URL编码，方便进行数据包传输.这里让目标下载Windows本地的1.pl文件<br><img src="https://gitlab.com/chihy525/picgo_picture/-/raw/main/pictures/2023/07/16_20_6_23_3.jpg"></li><li>进行发包<br><img src="https://gitlab.com/chihy525/picgo_picture/-/raw/main/pictures/2023/07/16_20_11_21_4.jpg"></li><li>查看文件是否下载成功<br><img src="https://gitlab.com/chihy525/picgo_picture/-/raw/main/pictures/2023/07/16_20_12_16_5.jpg"></li><li>在kali中启用nc对8899端口进行监听<br><img src="https://gitlab.com/chihy525/picgo_picture/-/raw/main/pictures/2023/07/16_20_14_15_6.jpg"></li><li>使用burpsuite发包执行1.pl文件<br><img src="https://gitlab.com/chihy525/picgo_picture/-/raw/main/pictures/2023/07/16_20_18_17_7.jpg"><br><img src="https://gitlab.com/chihy525/picgo_picture/-/raw/main/pictures/2023/07/16_20_18_42_8.jpg"></li><li>查看nc是否反弹成功<br><img src="https://gitlab.com/chihy525/picgo_picture/-/raw/main/pictures/2023/07/16_20_19_15_9.jpg"></li></ol><h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><ul><li><a href="https://vulhub.org/#/environments/jenkins/CVE-2018-1000861/">Jenkins远程命令执行漏洞（CVE-2018-1000861）</a></li><li><a href="https://blog.orange.tw/2019/02/abusing-meta-programming-for-unauthenticated-rce.html">http://blog.orange.tw/2019/02/abusing-meta-programming-for-unauthenticated-rce.html</a></li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> 漏洞复现 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 漏洞复现 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Nacos_认证绕过漏洞(CVE-2021-29441)</title>
       <link href="/2023/07/10/Nacos-%E8%AE%A4%E8%AF%81%E7%BB%95%E8%BF%87%E6%BC%8F%E6%B4%9E-CVE-2021-29441/"/>
       <url>/2023/07/10/Nacos-%E8%AE%A4%E8%AF%81%E7%BB%95%E8%BF%87%E6%BC%8F%E6%B4%9E-CVE-2021-29441/</url>
@@ -20,7 +45,7 @@
       
         <tags>
             
-            <tag> 漏洞复现 Nacos Authentication Bypass </tag>
+            <tag> 漏洞复现 </tag>
             
         </tags>
       
