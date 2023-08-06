@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>极致CMS后台远程文件下载-CVE-2023-38948</title>
+      <link href="/2023/08/06/%E6%9E%81%E8%87%B4CMS%E5%90%8E%E5%8F%B0%E8%BF%9C%E7%A8%8B%E6%96%87%E4%BB%B6%E4%B8%8B%E8%BD%BD-CVE-2023-38948/"/>
+      <url>/2023/08/06/%E6%9E%81%E8%87%B4CMS%E5%90%8E%E5%8F%B0%E8%BF%9C%E7%A8%8B%E6%96%87%E4%BB%B6%E4%B8%8B%E8%BD%BD-CVE-2023-38948/</url>
+      
+        <content type="html"><![CDATA[<h1 id="极致CMS后台远程文件下载-CVE-2023-38948"><a href="#极致CMS后台远程文件下载-CVE-2023-38948" class="headerlink" title="极致CMS后台远程文件下载-CVE-2023-38948"></a>极致CMS后台远程文件下载-CVE-2023-38948</h1><h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><p>极致CMS是一款开源免费，无商业授权的建站系统</p><h2 id="产生版本"><a href="#产生版本" class="headerlink" title="产生版本"></a>产生版本</h2><p>jizhicms version &lt;&#x3D; 1.9.5</p><h2 id="漏洞原理"><a href="#漏洞原理" class="headerlink" title="漏洞原理"></a>漏洞原理</h2><p>jizhicms的&#x2F;c&#x2F;PluginsController.php组件中存在任意文件下载漏洞，攻击者可以将恶意php文件打包成zip压缩包。之后让目标服务器下载zip压缩包后进行解压，从而实现攻击。</p><h2 id="漏洞复现"><a href="#漏洞复现" class="headerlink" title="漏洞复现"></a>漏洞复现</h2><ul><li>攻击机:windows ip: 192.168.101.2</li><li>靶机:centos ip: 192.168.155.130</li></ul><ol><li><p>下载<a href="https://github.com/Cherry-toto/jizhicms/releases/download/v1.9.5/jizhicms-sqlite-mysql-1.9.5.zip">极致cms压缩包</a></p></li><li><p>确认网站是否搭建完成<br><img src="https://gitlab.com/chihy525/picgo_picture/-/raw/main/pictures/2023/08/6_18_41_0_1.png"></p></li><li><p>访问后台管理界面，登录后台<br><img src="https://gitlab.com/chihy525/picgo_picture/-/raw/main/pictures/2023/08/6_18_44_54_2.png"><br><img src="https://gitlab.com/chihy525/picgo_picture/-/raw/main/pictures/2023/08/6_18_45_14_3.png"></p></li><li><p>准备好恶意php文件并打包成压缩包，之后启动http服务<br><img src="https://gitlab.com/chihy525/picgo_picture/-/raw/main/pictures/2023/08/6_18_59_50_4.png"></p></li><li><p>访问漏洞点，让目标服务器下载刚刚创建的zip文件<br><img src="https://gitlab.com/chihy525/picgo_picture/-/raw/main/pictures/2023/08/6_19_1_17_5.png"></p></li><li><p>对下载到目标服务器上的压缩包进行解压(这里需要注意俩次的filepath要保持一致)<br><img src="https://gitlab.com/chihy525/picgo_picture/-/raw/main/pictures/2023/08/6_19_5_0_6.png"></p></li><li><p>访问解压后的test.php<br><img src="https://gitlab.com/chihy525/picgo_picture/-/raw/main/pictures/2023/08/6_19_6_55_7.png"></p></li><li><p>使用自己编写的poc进行验证<br><img src="https://gitlab.com/chihy525/picgo_picture/-/raw/main/pictures/2023/08/6_19_12_12_8.png"></p></li><li><p>经过测试发现jizhicms2.4.5疑似也存在此漏洞，不过2.4.5和1.9.5的URL路径有些不同。</p></li><li><p>因为本人的使用java编写poc的技术还不是很到位，所以现如今使用poc需要满足下面条件</p></li></ol><ul><li>cookie是已经登录后的cookie(毕竟是后台的洞嘛)</li><li>zip文件名称必须和压缩包中的文件名称保持一致</li></ul><p>因为是第一次使用java编写poc，如有不足之处还希望大佬指出</p><p><a href="https://github.com/chihy525/poc/blob/main/CVE-2023-38948.jar">CVE-2023-38948.jar</a></p><h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><ul><li><a href="https://github.com/Cherry-toto/jizhicms/issues/84">极致CMS后台 插件管理存在命令执行漏洞</a></li><li><a href="https://mp.weixin.qq.com/s/PUOmJt4VZDJvqIj2S9w4lQ">CVE-2023-38948：极致CMS后台远程文件下载RCE</a></li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> 漏洞复现 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 漏洞复现 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Jenkins远程命令执行漏洞-CVE-2018-1000861</title>
       <link href="/2023/07/16/Jenkins%E8%BF%9C%E7%A8%8B%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C%E6%BC%8F%E6%B4%9E-CVE-2018-1000861/"/>
       <url>/2023/07/16/Jenkins%E8%BF%9C%E7%A8%8B%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C%E6%BC%8F%E6%B4%9E-CVE-2018-1000861/</url>
